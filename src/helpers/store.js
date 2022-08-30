@@ -5,6 +5,7 @@ const useStoreImpl = create(() => {
   return {
     router: null,
     dom: null,
+    fov: 50
   }
 })
 

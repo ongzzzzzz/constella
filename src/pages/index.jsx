@@ -33,7 +33,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Index',
+      title: 'Home Page',
     },
   }
 }
