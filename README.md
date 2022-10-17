@@ -31,3 +31,5 @@ todo
 - star tooltip
 - customise with latitude
 - memorisation technique from star charts 101
+
+messiers!

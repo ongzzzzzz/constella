@@ -8,16 +8,24 @@ import { useRef, useState, useMemo } from 'react'
 import vertex from './glsl/shader.vert'
 import fragment from './glsl/shader.frag'
 
+let intersects = null;
+let intersected = null;
+
+let pointer = new THREE.Vector2(0, 0);
 const StarsComponent = ({ stars }) => {
   const points = useRef(null)
   
-  // const [hovered, setHover] = useState(false)
-  // // Subscribe this component to the render-loop, rotate the mesh every frame
-  //   useFrame((state, delta) =>
-  //     mesh.current
-  //       ? (mesh.current.rotation.y = mesh.current.rotation.x += 0.01)
-  //       : null
-  //   )
+  const [hovered, setHover] = useState(false);
+  useFrame((state, delta) => {
+    // mesh.current ? (mesh.current.rotation.y = mesh.current.rotation.x += 0.01) : null
+
+    pointer.x = state.mouse.x, pointer.y = state.mouse.y;
+    state.raycaster.setFromCamera(pointer, state.camera);
+    intersects = state.raycaster.intersectObject(points.current);
+    if (intersects.length > 0) {
+      console.log(intersects[0])
+    }
+  })
 
   let R = 1000;
 
@@ -60,8 +68,8 @@ const StarsComponent = ({ stars }) => {
     <>
       <points
         ref={points}
-      // onPointerOver={() => setHover(true)}
-      // onPointerOut={() => setHover(false)}
+        onPointerOver={() => {setHover(true);}}
+        onPointerOut={() => {setHover(false);}}
       >
         <bufferGeometry>
           <bufferAttribute
