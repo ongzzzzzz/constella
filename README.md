@@ -26,10 +26,11 @@ serve json to client
 }
 
 todo
+- "pick out the stars that belong to constellation X" game
 - constellation lines
 - interactivity with constellation boundary
-- star tooltip
 - customise with latitude
 - memorisation technique from star charts 101
+- pinch change fov
 
 messiers!

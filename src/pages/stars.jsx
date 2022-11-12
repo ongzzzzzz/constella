@@ -9,9 +9,11 @@ const Stars = dynamic(() => import('@/components/canvas/Stars/Stars'), {
 
 const Page = (props) => {
     const fov = useStore((state) => state.fov);
+    const pointing = useStore((state) => state.pointing);
     return (
         <div>
             <div style={{color: "white"}}>FOV: {fov}</div>
+            <div style={{color: "white"}}>pointing: {pointing}</div>
         </div>
     )
 }

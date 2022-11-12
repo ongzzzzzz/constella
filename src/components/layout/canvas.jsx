@@ -38,7 +38,7 @@ const LCanvas = ({ children }) => {
       onCreated={(state) => state.events.connect(dom.current)}
     >
       <color attach="background" args={["black"]}/>
-      <axesHelper args={[5,5,5]} />
+      {/* <axesHelper args={[5,5,5]} /> */}
       <CameraUpdate />
       <LControl />
       <Preload all />
